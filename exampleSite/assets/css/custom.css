@@ -1,1 +1,378 @@
-/* Add your own custom styles here */
+/* === Dark Academia Biotech === */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-oxblood: #8B2635;
+  --color-sage: #A8B89C;
+  --color-cream: #F0EBE1;
+  --color-ink: #16181B;
+  --color-card: #1D2024;
+}
+
+/* ── Typography ── */
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400 !important;
+  letter-spacing: -0.015em;
+}
+
+em {
+  color: var(--color-sage);
+  font-style: italic;
+}
+
+/* ── Header / Nav ── */
+.header {
+  border-bottom: 1px solid rgba(240, 235, 225, 0.07) !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.navbar-brand {
+  font-family: var(--font-secondary), serif !important;
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+}
+
+.nav-link {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+  color: var(--color-sage) !important;
+}
+
+/* ── Buttons ── */
+.btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-primary {
+  background: var(--color-oxblood) !important;
+  border-color: var(--color-oxblood) !important;
+  color: var(--color-cream) !important;
+}
+
+.btn-primary:hover {
+  background: transparent !important;
+  color: var(--color-oxblood) !important;
+}
+
+.btn-outline-primary {
+  background: transparent !important;
+  border: 1px solid var(--color-oxblood) !important;
+  color: var(--color-oxblood) !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--color-oxblood) !important;
+  color: var(--color-cream) !important;
+}
+
+/* ── Hero Section ── */
+.da-hero {
+  padding: 100px 0 80px;
+  position: relative;
+  border-bottom: 1px solid rgba(240, 235, 225, 0.07);
+}
+
+.da-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-oxblood);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.da-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--color-oxblood);
+  flex-shrink: 0;
+}
+
+.da-headline {
+  font-family: var(--font-secondary), serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(52px, 7vw, 92px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 32px !important;
+}
+
+.da-lede {
+  font-size: 19px !important;
+  line-height: 1.6 !important;
+  color: rgba(240, 235, 225, 0.72) !important;
+  max-width: 520px;
+  margin-bottom: 40px !important;
+}
+
+.da-cta {
+  padding: 14px 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.da-arrow {
+  transition: transform 0.2s;
+}
+
+.da-cta:hover .da-arrow {
+  transform: translateX(4px);
+}
+
+.da-ornament {
+  width: min(240px, 100%);
+  opacity: 0.5;
+}
+
+/* ── Feature Sections ── */
+.da-feature {
+  padding: 90px 0;
+  border-top: 1px solid rgba(240, 235, 225, 0.07);
+}
+
+.da-feature--alt {
+  background: #1D2024;
+}
+
+.da-section-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin-bottom: 18px;
+}
+
+.da-feature h2 {
+  font-family: var(--font-secondary), serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(32px, 4vw, 48px) !important;
+  line-height: 1.1 !important;
+  margin-bottom: 20px !important;
+}
+
+.da-feature-lede {
+  font-size: 17px !important;
+  line-height: 1.65 !important;
+  color: rgba(240, 235, 225, 0.68) !important;
+  margin-bottom: 28px !important;
+}
+
+.da-list {
+  list-style: none !important;
+  padding: 0 !important;
+  border-top: 1px solid rgba(240, 235, 225, 0.08);
+}
+
+.da-list li {
+  padding: 14px 0 !important;
+  border-bottom: 1px solid rgba(240, 235, 225, 0.08);
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex !important;
+  align-items: baseline;
+  gap: 14px;
+  padding-left: 0 !important;
+}
+
+.da-list li::before {
+  content: none !important;
+}
+
+.da-list li::after {
+  content: none !important;
+}
+
+.da-list li i {
+  display: none !important;
+}
+
+.da-list li:has(i.fa-check)::before,
+.da-list li .fa-check {
+  display: none !important;
+}
+
+/* feature section list items — override the default checkmark style */
+.da-feature ul li {
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.da-feature ul li::before {
+  content: none !important;
+}
+
+.da-feature ul li .fa-check,
+.da-feature ul li i {
+  display: none !important;
+}
+
+/* ── Feature images ── */
+.da-feature img {
+  filter: sepia(15%) contrast(92%) brightness(0.9);
+  border: 1px solid rgba(240, 235, 225, 0.08) !important;
+  border-radius: 0 !important;
+}
+
+/* ── Call to Action ── */
+.bg-light, .dark .dark\:bg-darkmode-light {
+  background: #1D2024 !important;
+}
+
+section.mb-28 .rounded-xl {
+  border-radius: 0 !important;
+  border: 1px solid rgba(240, 235, 225, 0.08) !important;
+  background: #1D2024 !important;
+}
+
+section.mb-28 h2 {
+  font-family: var(--font-secondary), serif !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid rgba(240, 235, 225, 0.08) !important;
+  background: #0E1012 !important;
+}
+
+footer a {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  opacity: 0.6;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+footer a:hover {
+  opacity: 1;
+  color: var(--color-sage) !important;
+}
+
+footer .border-t p {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  opacity: 0.4;
+}
+
+.social-icons a {
+  color: var(--color-sage) !important;
+  transition: color 0.2s, opacity 0.2s;
+  opacity: 0.7;
+}
+
+.social-icons a:hover {
+  color: var(--color-oxblood) !important;
+  opacity: 1;
+}
+
+/* ── Blog / Cards ── */
+.rounded-lg, .rounded-xl, .rounded {
+  border-radius: 0 !important;
+}
+
+/* ── Testimonials ── */
+.testimonial-slider .swiper-slide > div {
+  border: 1px solid rgba(240, 235, 225, 0.08) !important;
+  background: #1D2024 !important;
+  border-radius: 0 !important;
+}
+
+/* ── Search modal ── */
+.search-modal {
+  --color-primary: #8B2635 !important;
+}
+
+/* ── General link color ── */
+a:not(.btn):not(.navbar-brand):not(.nav-link):not(.social-icons a) {
+  transition: color 0.2s;
+}
+
+a:not(.btn):not(.navbar-brand):not(.nav-link):not(.social-icons a):hover {
+  color: var(--color-sage);
+}
+
+/* ── Blog post list ── */
+.blog-card h3 a:hover,
+.blog-card a:hover {
+  color: var(--color-sage) !important;
+}
+
+/* ── Page headers ── */
+.page-header {
+  border-bottom: 1px solid rgba(240, 235, 225, 0.08);
+  padding-bottom: 40px;
+}
+
+/* ── About page ── */
+.about-page h1 {
+  font-family: var(--font-secondary), serif !important;
+  font-weight: 300 !important;
+  font-style: italic;
+}
+
+/* ── Misc ── */
+img {
+  border-radius: 0 !important;
+}
+
+blockquote {
+  border-left: 2px solid var(--color-oxblood) !important;
+  padding-left: 20px !important;
+  font-style: italic !important;
+  opacity: 0.85;
+}
+
+hr {
+  border-color: rgba(240, 235, 225, 0.08) !important;
+}
+
+/* Pagination */
+.pagination a, .pagination span {
+  border-radius: 0 !important;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+/* Tags & Categories */
+.badge, .tag {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}

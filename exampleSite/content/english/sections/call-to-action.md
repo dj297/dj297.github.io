@@ -1,12 +1,12 @@
 ---
 enable: true
-title: "Ready to build your next project with Hugo?"
+title: "Let's correspond."
 image: "/images/call-to-action.png"
-description: "Experience the future of web development with Hugoplate and Hugo. Build lightning-fast static sites with ease and flexibility."
+description: "Whether you want to talk engineering, swap creative ideas, or just say hello — I'm always open to connecting with curious people."
 button:
   enable: true
-  label: "Fork Deploy and Edit Online 🚀"
-  link: "https://app.sitepins.com/new/clone?name=Hugoplate&repository=https://github.com/zeon-studio/hugoplate?aff=hugoplate"
+  label: "Connect on LinkedIn"
+  link: "https://www.linkedin.com/in/jain-devanshi/"
 
 # don't create a separate page
 build:
