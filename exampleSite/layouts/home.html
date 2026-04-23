@@ -1,0 +1,290 @@
+{{ define "main" }}
+
+  <!-- Banner -->
+  {{ with .Params.banner }}
+    <section class="da-hero">
+      <div class="container">
+        <div class="row items-center">
+          <div class="lg:col-8 xl:col-7">
+            <div class="da-eyebrow">Portfolio · Est. 2026</div>
+            <h1 class="da-headline">{{ .title | markdownify }}</h1>
+            <p class="da-lede">{{ .content | markdownify }}</p>
+            {{ with .button }}
+              {{ if .enable }}
+                <a class="btn btn-primary da-cta"
+                  href="{{ .link | absURL }}"
+                  {{ if strings.HasPrefix .link `http` }}target="_blank" rel="noopener"{{ end }}>
+                  {{ .label }} <span class="da-arrow">→</span>
+                </a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <div class="lg:col-4 xl:col-5 flex items-center justify-center mt-16 lg:mt-0">
+            <svg class="da-ornament" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="110" cy="110" r="100" stroke="#A8B89C" stroke-width="0.4" stroke-dasharray="2 4"/>
+              <circle cx="110" cy="110" r="72" stroke="#8B2635" stroke-width="0.7"/>
+              <circle cx="110" cy="110" r="44" stroke="#A8B89C" stroke-width="0.4"/>
+              <circle cx="110" cy="110" r="18" stroke="#8B2635" stroke-width="0.5" stroke-dasharray="1 2"/>
+              <path d="M110 10 L110 210" stroke="#A8B89C" stroke-width="0.3" stroke-dasharray="1 3"/>
+              <path d="M10 110 L210 110" stroke="#A8B89C" stroke-width="0.3" stroke-dasharray="1 3"/>
+              <path d="M39 39 L181 181" stroke="#A8B89C" stroke-width="0.2" stroke-dasharray="1 4" opacity="0.4"/>
+              <path d="M181 39 L39 181" stroke="#A8B89C" stroke-width="0.2" stroke-dasharray="1 4" opacity="0.4"/>
+              <circle cx="110" cy="110" r="4" fill="#8B2635"/>
+              <circle cx="110" cy="38" r="2" fill="#A8B89C" opacity="0.7"/>
+              <circle cx="110" cy="182" r="2" fill="#A8B89C" opacity="0.7"/>
+              <circle cx="38" cy="110" r="2" fill="#A8B89C" opacity="0.7"/>
+              <circle cx="182" cy="110" r="2" fill="#A8B89C" opacity="0.7"/>
+              <text x="110" y="8" fill="#A8B89C" font-family="monospace" font-size="6.5" text-anchor="middle" letter-spacing="3.5" opacity="0.65">PLATE I</text>
+              <text x="110" y="219" fill="#A8B89C" font-family="monospace" font-size="6" text-anchor="middle" letter-spacing="2" opacity="0.4">D. JAIN · 2026</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+  <!-- /Banner -->
+
+  <!-- Features -->
+  {{ range $i, $e := .Params.features }}
+    {{ $labels := slice "Practice" "Community" "Engineering" }}
+    <section class="da-feature {{ if (modBool $i 2) }}da-feature--alt{{ end }}">
+      <div class="container">
+        <div class="row items-center justify-between">
+
+          <!-- Illustration column -->
+          <div class="mb-10 md:mb-0 {{ if not (modBool $i 2) }}md:order-2{{ end }} md:col-5">
+            <div class="da-specimen-card">
+              <div class="da-specimen-header">
+                <span>SPECIMEN №0{{ add $i 1 }}</span>
+                <span>FIG. {{ add $i 1 }}.1</span>
+              </div>
+              <div class="da-specimen-art">
+
+                {{ if eq $i 0 }}
+                <!-- § 01 Art — "Manus Creans" — The Creating Hand -->
+                <svg viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- dashed specimen border -->
+                  <rect x="8" y="8" width="264" height="304" stroke="#A8B89C" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.35"/>
+                  <!-- hand holding pen — fingers -->
+                  <!-- palm base -->
+                  <path d="M100 260 C95 240, 88 215, 90 190 C92 170, 100 155, 108 140"
+                        stroke="#F0EBE1" stroke-width="1" fill="none"/>
+                  <!-- thumb -->
+                  <path d="M100 215 C88 208, 78 200, 75 185 C73 175, 78 165, 88 162"
+                        stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <!-- index finger (holding pen) -->
+                  <path d="M108 140 C110 120, 114 100, 118 80 C120 70, 124 65, 128 62"
+                        stroke="#F0EBE1" stroke-width="1" fill="none"/>
+                  <!-- middle finger -->
+                  <path d="M120 148 C124 128, 130 108, 135 88 C138 75, 141 68, 144 65"
+                        stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <!-- ring finger -->
+                  <path d="M132 160 C137 142, 143 124, 148 106 C151 93, 154 86, 156 83"
+                        stroke="#F0EBE1" stroke-width="0.85" fill="none"/>
+                  <!-- pinky -->
+                  <path d="M142 175 C147 160, 152 146, 157 133 C160 123, 163 117, 165 114"
+                        stroke="#F0EBE1" stroke-width="0.75" fill="none"/>
+                  <!-- pen shaft -->
+                  <path d="M118 80 L158 200" stroke="#F0EBE1" stroke-width="1.4"/>
+                  <!-- pen nib -->
+                  <path d="M158 200 L153 216 L164 210 Z" fill="#8B2635"/>
+                  <!-- pen clip -->
+                  <line x1="121" y1="90" x2="124" y2="100" stroke="#A8B89C" stroke-width="0.6"/>
+                  <!-- ink strokes flowing from pen -->
+                  <path d="M164 212 C175 220, 195 225, 210 235"
+                        stroke="#8B2635" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M164 212 C168 228, 172 245, 168 258"
+                        stroke="#8B2635" stroke-width="0.9" stroke-linecap="round" opacity="0.7"/>
+                  <path d="M164 212 C180 215, 205 210, 222 218"
+                        stroke="#A8B89C" stroke-width="0.7" stroke-dasharray="1 2" opacity="0.6"/>
+                  <!-- small sketched marks — art in progress -->
+                  <path d="M195 248 C198 243, 204 241, 208 244 C212 247, 212 253, 208 256 C204 259, 198 257, 195 253 C193 250, 194 246, 197 244"
+                        stroke="#A8B89C" stroke-width="0.5" opacity="0.5"/>
+                  <line x1="185" y1="265" x2="218" y2="265" stroke="#A8B89C" stroke-width="0.4" opacity="0.4"/>
+                  <line x1="188" y1="270" x2="214" y2="270" stroke="#A8B89C" stroke-width="0.3" opacity="0.3"/>
+                  <!-- annotation lines -->
+                  <line x1="88" y1="162" x2="50" y2="148" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="18" y="151" fill="#A8B89C" font-family="monospace" font-size="7">a.</text>
+                  <line x1="128" y1="62" x2="128" y2="30" stroke="#A8B89C" stroke-width="0.35"/>
+                  <line x1="128" y1="30" x2="165" y2="30" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="168" y="33" fill="#A8B89C" font-family="monospace" font-size="7">b.</text>
+                  <line x1="164" y1="210" x2="235" y2="195" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="238" y="198" fill="#A8B89C" font-family="monospace" font-size="7">c.</text>
+                  <!-- baseline -->
+                  <line x1="80" y1="304" x2="200" y2="304" stroke="#A8B89C" stroke-width="0.3" opacity="0.3"/>
+                </svg>
+
+                {{ else if eq $i 1 }}
+                <!-- § 02 Community — "Coetus" — Figures in Circle -->
+                <svg viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- outer dashed border -->
+                  <rect x="8" y="8" width="264" height="304" stroke="#A8B89C" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.35"/>
+                  <!-- community circle -->
+                  <circle cx="140" cy="155" r="88" stroke="#A8B89C" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+                  <!-- inner gathering circle -->
+                  <circle cx="140" cy="155" r="30" stroke="#8B2635" stroke-width="0.5" fill="#8B2635" fill-opacity="0.05"/>
+                  <!-- connecting lines between figures — community bonds -->
+                  <line x1="140" y1="75" x2="210" y2="118" stroke="#A8B89C" stroke-width="0.4" opacity="0.5"/>
+                  <line x1="210" y1="118" x2="210" y2="192" stroke="#A8B89C" stroke-width="0.4" opacity="0.5"/>
+                  <line x1="210" y1="192" x2="140" y2="235" stroke="#A8B89C" stroke-width="0.4" opacity="0.5"/>
+                  <line x1="140" y1="235" x2="70" y2="192" stroke="#A8B89C" stroke-width="0.4" opacity="0.5"/>
+                  <line x1="70" y1="192" x2="70" y2="118" stroke="#A8B89C" stroke-width="0.4" opacity="0.5"/>
+                  <line x1="70" y1="118" x2="140" y2="75" stroke="#A8B89C" stroke-width="0.4" opacity="0.5"/>
+                  <!-- cross connections -->
+                  <line x1="140" y1="75" x2="210" y2="192" stroke="#A8B89C" stroke-width="0.25" opacity="0.25"/>
+                  <line x1="210" y1="118" x2="70" y2="192" stroke="#A8B89C" stroke-width="0.25" opacity="0.25"/>
+                  <line x1="210" y1="118" x2="140" y2="235" stroke="#A8B89C" stroke-width="0.25" opacity="0.25"/>
+                  <line x1="70" y1="118" x2="210" y2="192" stroke="#A8B89C" stroke-width="0.25" opacity="0.25"/>
+                  <line x1="70" y1="192" x2="140" y2="75" stroke="#A8B89C" stroke-width="0.25" opacity="0.25"/>
+                  <!-- figure 1 — top center -->
+                  <circle cx="140" cy="63" r="8" stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <path d="M132 75 C132 82, 133 88, 134 92 L146 92 C147 88, 148 82, 148 75"
+                        stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <!-- figure 2 — upper right -->
+                  <circle cx="216" cy="106" r="8" stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <path d="M208 118 C208 125, 209 131, 210 135 L222 135 C223 131, 224 125, 224 118"
+                        stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <!-- figure 3 — lower right -->
+                  <circle cx="216" cy="180" r="8" stroke="#8B2635" stroke-width="0.9" fill="none"/>
+                  <path d="M208 192 C208 199, 209 205, 210 209 L222 209 C223 205, 224 199, 224 192"
+                        stroke="#8B2635" stroke-width="0.9" fill="none"/>
+                  <!-- figure 4 — bottom center -->
+                  <circle cx="140" cy="223" r="8" stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <path d="M132 235 C132 242, 133 248, 134 252 L146 252 C147 248, 148 242, 148 235"
+                        stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <!-- figure 5 — lower left -->
+                  <circle cx="64" cy="180" r="8" stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <path d="M56 192 C56 199, 57 205, 58 209 L70 209 C71 205, 72 199, 72 192"
+                        stroke="#F0EBE1" stroke-width="0.9" fill="none"/>
+                  <!-- figure 6 — upper left -->
+                  <circle cx="64" cy="106" r="8" stroke="#A8B89C" stroke-width="0.9" fill="none"/>
+                  <path d="M56 118 C56 125, 57 131, 58 135 L70 135 C71 131, 72 125, 72 118"
+                        stroke="#A8B89C" stroke-width="0.9" fill="none"/>
+                  <!-- central kindness mark -->
+                  <circle cx="140" cy="155" r="6" fill="#8B2635" opacity="0.7"/>
+                  <circle cx="140" cy="155" r="3" fill="#F0EBE1" opacity="0.5"/>
+                  <!-- annotation -->
+                  <line x1="140" y1="55" x2="140" y2="28" stroke="#A8B89C" stroke-width="0.35"/>
+                  <line x1="140" y1="28" x2="175" y2="28" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="178" y="31" fill="#A8B89C" font-family="monospace" font-size="7">a.</text>
+                  <line x1="148" y1="155" x2="200" y2="140" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="203" y="143" fill="#A8B89C" font-family="monospace" font-size="7">b.</text>
+                  <line x1="224" y1="180" x2="252" y2="180" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="255" y="183" fill="#A8B89C" font-family="monospace" font-size="7">c.</text>
+                  <!-- baseline -->
+                  <line x1="80" y1="304" x2="200" y2="304" stroke="#A8B89C" stroke-width="0.3" opacity="0.3"/>
+                </svg>
+
+                {{ else }}
+                <!-- § 03 Engineering — "Bios et Machina" — DNA + Schematic -->
+                <svg viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- grid background -->
+                  {{ range (seq 3 8) }}{{ end }}
+                  <line x1="10" y1="60" x2="270" y2="60" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="10" y1="100" x2="270" y2="100" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="10" y1="140" x2="270" y2="140" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="10" y1="180" x2="270" y2="180" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="10" y1="220" x2="270" y2="220" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="10" y1="260" x2="270" y2="260" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="50" y1="20" x2="50" y2="300" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="90" y1="20" x2="90" y2="300" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="130" y1="20" x2="130" y2="300" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="170" y1="20" x2="170" y2="300" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="210" y1="20" x2="210" y2="300" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <line x1="250" y1="20" x2="250" y2="300" stroke="#A8B89C" stroke-width="0.18" opacity="0.18"/>
+                  <!-- DNA double helix — left half -->
+                  <!-- strand 1 (cream) -->
+                  <path d="M75 30 C95 50, 65 70, 85 90 C105 110, 65 130, 85 150 C105 170, 65 190, 85 210 C105 230, 65 250, 85 270 C95 280, 105 288, 115 292"
+                        stroke="#F0EBE1" stroke-width="1" fill="none"/>
+                  <!-- strand 2 (sage) -->
+                  <path d="M115 30 C95 50, 125 70, 105 90 C85 110, 125 130, 105 150 C85 170, 125 190, 105 210 C85 230, 125 250, 105 270 C95 280, 85 288, 75 292"
+                        stroke="#A8B89C" stroke-width="1" fill="none"/>
+                  <!-- base pairs (rungs) -->
+                  <line x1="80" y1="50" x2="110" y2="50" stroke="#8B2635" stroke-width="0.8"/>
+                  <line x1="86" y1="70" x2="104" y2="70" stroke="#F0EBE1" stroke-width="0.6" opacity="0.5"/>
+                  <line x1="76" y1="90" x2="114" y2="90" stroke="#8B2635" stroke-width="0.8"/>
+                  <line x1="86" y1="110" x2="104" y2="110" stroke="#F0EBE1" stroke-width="0.6" opacity="0.5"/>
+                  <line x1="76" y1="130" x2="114" y2="130" stroke="#8B2635" stroke-width="0.8"/>
+                  <line x1="86" y1="150" x2="104" y2="150" stroke="#F0EBE1" stroke-width="0.6" opacity="0.5"/>
+                  <line x1="76" y1="170" x2="114" y2="170" stroke="#8B2635" stroke-width="0.8"/>
+                  <line x1="86" y1="190" x2="104" y2="190" stroke="#F0EBE1" stroke-width="0.6" opacity="0.5"/>
+                  <line x1="76" y1="210" x2="114" y2="210" stroke="#8B2635" stroke-width="0.8"/>
+                  <line x1="86" y1="230" x2="104" y2="230" stroke="#F0EBE1" stroke-width="0.6" opacity="0.5"/>
+                  <line x1="76" y1="250" x2="114" y2="250" stroke="#8B2635" stroke-width="0.8"/>
+                  <line x1="86" y1="270" x2="104" y2="270" stroke="#F0EBE1" stroke-width="0.6" opacity="0.5"/>
+                  <!-- transition zone — helix morphing into schematic -->
+                  <line x1="115" y1="155" x2="150" y2="155" stroke="#F0EBE1" stroke-width="0.6" stroke-dasharray="2 2"/>
+                  <!-- engineering schematic — right half -->
+                  <!-- MES process boxes -->
+                  <rect x="152" y="45" width="58" height="28" stroke="#F0EBE1" stroke-width="0.7" fill="none"/>
+                  <text x="181" y="58" fill="#F0EBE1" font-family="monospace" font-size="6.5" text-anchor="middle" opacity="0.85">SENSOR</text>
+                  <text x="181" y="67" fill="#A8B89C" font-family="monospace" font-size="5.5" text-anchor="middle" opacity="0.6">INPUT</text>
+                  <rect x="152" y="105" width="58" height="28" stroke="#8B2635" stroke-width="0.7" fill="#8B2635" fill-opacity="0.07"/>
+                  <text x="181" y="118" fill="#8B2635" font-family="monospace" font-size="6.5" text-anchor="middle">MES</text>
+                  <text x="181" y="127" fill="#8B2635" font-family="monospace" font-size="5.5" text-anchor="middle">LOGIC</text>
+                  <rect x="152" y="165" width="58" height="28" stroke="#F0EBE1" stroke-width="0.7" fill="none"/>
+                  <text x="181" y="178" fill="#F0EBE1" font-family="monospace" font-size="6.5" text-anchor="middle" opacity="0.85">PROCESS</text>
+                  <text x="181" y="187" fill="#A8B89C" font-family="monospace" font-size="5.5" text-anchor="middle" opacity="0.6">CONTROL</text>
+                  <rect x="152" y="225" width="58" height="28" stroke="#A8B89C" stroke-width="0.7" fill="none"/>
+                  <text x="181" y="238" fill="#A8B89C" font-family="monospace" font-size="6.5" text-anchor="middle">OUTPUT</text>
+                  <text x="181" y="247" fill="#A8B89C" font-family="monospace" font-size="5.5" text-anchor="middle" opacity="0.6">DATA</text>
+                  <!-- flow arrows between boxes -->
+                  <line x1="181" y1="73" x2="181" y2="105" stroke="#F0EBE1" stroke-width="0.6"/>
+                  <polygon points="178,103 184,103 181,107" fill="#F0EBE1" opacity="0.7"/>
+                  <line x1="181" y1="133" x2="181" y2="165" stroke="#F0EBE1" stroke-width="0.6"/>
+                  <polygon points="178,163 184,163 181,167" fill="#F0EBE1" opacity="0.7"/>
+                  <line x1="181" y1="193" x2="181" y2="225" stroke="#F0EBE1" stroke-width="0.6"/>
+                  <polygon points="178,223 184,223 181,227" fill="#F0EBE1" opacity="0.7"/>
+                  <!-- feedback loop -->
+                  <path d="M210 119 C240 119, 245 160, 240 160 C245 160, 240 200, 210 193"
+                        stroke="#A8B89C" stroke-width="0.5" fill="none" stroke-dasharray="2 2" opacity="0.5"/>
+                  <!-- annotation lines -->
+                  <line x1="75" y1="30" x2="40" y2="20" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="12" y="23" fill="#A8B89C" font-family="monospace" font-size="7">a.</text>
+                  <line x1="76" y1="130" x2="40" y2="130" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="12" y="133" fill="#A8B89C" font-family="monospace" font-size="7">b.</text>
+                  <line x1="181" y1="45" x2="181" y2="25" stroke="#A8B89C" stroke-width="0.35"/>
+                  <line x1="181" y1="25" x2="220" y2="25" stroke="#A8B89C" stroke-width="0.35"/>
+                  <text x="223" y="28" fill="#A8B89C" font-family="monospace" font-size="7">c.</text>
+                  <!-- baseline -->
+                  <line x1="80" y1="304" x2="200" y2="304" stroke="#A8B89C" stroke-width="0.3" opacity="0.3"/>
+                </svg>
+                {{ end }}
+
+              </div>
+              <div class="da-specimen-footer">
+                {{ if eq $i 0 }}"Cor Visum" — a study in form{{ end }}
+                {{ if eq $i 1 }}"Rhizoma" — a study in connection{{ end }}
+                {{ if eq $i 2 }}"Systema" — a study in process{{ end }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Text column -->
+          <div class="{{ if not (modBool $i 2) }}md:order-1{{ end }} md:col-7 lg:col-6">
+            <div class="da-section-num">§ 0{{ add $i 1 }} — {{ index $labels $i }}</div>
+            <h2>{{ .title | markdownify }}</h2>
+            <p class="da-feature-lede">{{ .content | markdownify }}</p>
+            <ul class="da-list">
+              {{ range .bulletpoints }}
+                <li>{{ . | markdownify }}</li>
+              {{ end }}
+            </ul>
+            {{ with .button }}
+              {{ if .enable }}
+                <a class="btn btn-primary mt-8 inline-block" href="{{ .link | absURL }}">{{ .label }} →</a>
+              {{ end }}
+            {{ end }}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  {{ end }}
+  <!-- /Features -->
+
+  <!-- Call to action -->
+  {{ partial "call-to-action" . }}
+  <!-- /Call to action -->
+
+{{ end }}
