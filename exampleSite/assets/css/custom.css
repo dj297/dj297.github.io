@@ -153,6 +153,75 @@ em {
   opacity: 0.5;
 }
 
+/* ── Specimen Cards ── */
+.da-specimen-card {
+  border: 1px solid rgba(240, 235, 225, 0.12);
+  background: #1D2024;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.da-specimen-card::before,
+.da-specimen-card::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #8B2635;
+  border-style: solid;
+}
+
+.da-specimen-card::before {
+  top: 6px;
+  left: 6px;
+  border-width: 1px 0 0 1px;
+}
+
+.da-specimen-card::after {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 1px 1px 0;
+}
+
+.da-specimen-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #A8B89C;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(168, 184, 156, 0.25);
+}
+
+.da-specimen-art {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.da-specimen-art svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.da-specimen-footer {
+  font-family: var(--font-secondary), serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(240, 235, 225, 0.55);
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(168, 184, 156, 0.25);
+}
+
 /* ── Feature Sections ── */
 .da-feature {
   padding: 90px 0;
